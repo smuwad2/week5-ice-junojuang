@@ -23,8 +23,21 @@
 
         </div>
         <script>
-            function getData() {
- 
+
+            async function getData() {
+                axios.get('/data', {
+                    params: {
+                        'type': document.getElementById("type").value,
+                        'limit': document.getElementById("limit").value
+                    }
+                }).then(response => {
+                    const data = response.data;
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error)
+                }
+
+                )
             }
 
         </script>
